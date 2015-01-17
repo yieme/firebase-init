@@ -1,0 +1,20 @@
+{
+  "name": "firebase-init",
+  "version": "1.0.0",
+  "description": "Firebase Initializer with config from pass parameters, command line, config file or environment variables",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R list test/*.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "convar": "^1.1.1",
+    "firebase": "^2.1.1",
+    "firebase-token-generator": "^2.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.1.0",
+    "should": "^4.6.0"
+  }
+}
