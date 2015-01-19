@@ -21,7 +21,7 @@ function builder(config, cb) {
 
   if (config.token) {
     var tokenGenerator = new TokenGenerator(config.token)
-      , authToken      = tokenGenerator.createToken(config.tokenData)
+      , authToken      = tokenGenerator.createToken(config.tokenData || {})
     ;
 
     firebaseRef.authWithCustomToken(authToken, function(error, authData) {
