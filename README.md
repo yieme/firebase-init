@@ -15,7 +15,14 @@ npm install firebase-init --save
 - ```token```: custom authentication token
 - ```custom```: custom authentication data, optional with ```token```
 - ```root```: child path within firebase url
--
+
+Or as individual variables
+
+- ```firebase.url```: full firebase url, ex: ```https://example.firebaseio.com```
+- ```firebase.name```: firebase name, ex: ```example```
+- ```firebase.token```: custom authentication token
+- ```firebase.custom```: custom authentication data, optional with ```token```
+- ```firebase.root```: child path within firebase url
 
 ## Use
 
