@@ -2,9 +2,7 @@
 
 var convar         = require('convar')
   , firebaseConfig = convar('firebase') || {}
-  , Firebase       = require('firebase')
-  , TokenGenerator = require("firebase-token-generator")
-;
+  , Firebase       = require('firebase');
 
 
 
@@ -20,11 +18,13 @@ function builder(config, cb) {
   }
 
   if (config.token) {
-    var tokenGenerator = new TokenGenerator(config.token)
-//      , authToken      = tokenGenerator.createToken(config.tokenData || {})
-    ;
-
-    firebaseRef.authWithCustomToken(tokenGenerator, function(error, authData) {
+    var token = config.token
+    if (config.custom) {
+      var FirebaseTokenGenerator = require("firebase-token-generator")
+        , tokenGenerator = new FirebaseTokenGenerator(token)
+      token = tokenGenerator.createToken(config.custom)
+    }
+    firebaseRef.authWithCustomToken(token, function(error, authData) {
       finish(error, firebaseRef)
     })
   } else {
@@ -39,14 +39,14 @@ function FirebaseInit(option, cb) {
     cb       = option
     option   = {}
   }
-  option     = option       || {}
-  var name   = option.name  || firebaseConfig.name      || convar('firebase.name') || undefined
-  var url    = option.url   || firebaseConfig.url       || convar('firebase.url')  || name && 'https:' + name + '.firebaseio.com' || undefined
+  option     = option      || {}
+  var name   = option.name || firebaseConfig.name   || convar('firebase.name') || undefined
+  var url    = option.url  || firebaseConfig.url    || convar('firebase.url')  || name && 'https://' + name + '.firebaseio.com' || undefined
   var config = {
-    url:   url                                          || convar('firebase.url', 'Firebase name or url config required.'),
-    root:  option.root      || firebaseConfig.root      || convar('firebase.root'),
-    token: option.token     || firebaseConfig.token     || convar('firebase.token'),
-    data:  option.tokenData || firebaseConfig.tokenData || convar('firebase.tokenData')
+    url:    url                                     || convar('firebase.url', 'Firebase name or url config required.'),
+    root:   option.root    || firebaseConfig.root   || convar('firebase.root'),
+    token:  option.token   || firebaseConfig.token  || convar('firebase.token'),
+    custom: option.custom  || firebaseConfig.custom || convar('firebase.custom')
   }
 
   var firebase = builder(config, function(err, client) {
