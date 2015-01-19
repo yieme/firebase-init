@@ -1,7 +1,7 @@
 {
   "name": "firebase-init",
   "version": "1.0.3",
-  "description": "Firebase Initializer with config from pass parameters, command line, config file or environment variables",
+  "description": "Firebase Initializer with configuration variable via config file, environment variable, package, npm or cli",
   "main": "index.js",
   "scripts": {
     "test": "mocha -R list test/*.js"
