@@ -11,7 +11,8 @@
   "dependencies": {
     "convar": "^1.1.1",
     "firebase": "^2.1.2",
-    "firebase-token-generator": "^2.0.0"
+    "firebase-token-generator": "^2.0.0",
+    "jsonic": "^0.1.2"
   },
   "devDependencies": {
     "mocha": "^2.1.0",

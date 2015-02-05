@@ -2,7 +2,8 @@
 
 var convar         = require('convar')
   , firebaseConfig = convar('firebase') || {}
-  , Firebase       = require('firebase');
+  , Firebase       = require('firebase')
+  , jsonic         = require('jsonic')
 
 
 
@@ -24,7 +25,7 @@ function builder(config, cb) {
         , tokenGenerator = new FirebaseTokenGenerator(token)
       token = tokenGenerator.createToken(config.custom)
     }
-    firebaseRef.authWithCustomToken(token, function(error, authData) {
+    firebaseRef.authWithCustomToken(token, function(error /*, authData*/) {
       finish(error, firebaseRef)
     })
   } else {
@@ -40,6 +41,9 @@ function FirebaseInit(option, cb) {
     option   = {}
   }
   option     = option      || {}
+  if (typeof option === 'string') {
+    option = jsonic(''+option)
+  }
   var name   = option.name || firebaseConfig.name   || convar('firebase.name') || undefined
   var url    = option.url  || firebaseConfig.url    || convar('firebase.url')  || name && 'https://' + name + '.firebaseio.com' || undefined
   var config = {
@@ -49,7 +53,7 @@ function FirebaseInit(option, cb) {
     custom: option.custom  || firebaseConfig.custom || convar('firebase.custom')
   }
 
-  var firebase = builder(config, function(err, client) {
+  builder(config, function(err, client) {
     if (cb) {
       cb(err, client)
     } else if (err) {
