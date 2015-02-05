@@ -5,7 +5,7 @@
 var FirebaseInit = require('../index')
   , config = {
     name: 'pub',
-    root: 'AWS/zone/ap-northeast-1/city'
+    path: 'AWS/zone/ap-northeast-1/city'
   }
 
 FirebaseInit(config, function (err, firebaseRef) {
