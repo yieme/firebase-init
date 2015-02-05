@@ -1,6 +1,6 @@
 # firebase-init
-Firebase Initializer with configuration variable via config file, environment variable, package, npm or cli
 
+Firebase Initializer with configuration variable via config file, environment variable, package, npm or cli
 
 ## Install
 
@@ -14,7 +14,7 @@ npm install firebase-init --save
 - ```name```: firebase name, ex: ```example```
 - ```token```: custom authentication token
 - ```custom```: custom authentication data, optional with ```token```
-- ```root```: child path within firebase url
+- ```path```: child path within firebase url
 
 Or as individual variables
 
@@ -22,10 +22,9 @@ Or as individual variables
 - ```firebase.name```: firebase name, ex: ```example```
 - ```firebase.token```: custom authentication token
 - ```firebase.custom```: custom authentication data, optional with ```token```
-- ```firebase.root```: child path within firebase url
+- ```firebase.path```: child path within firebase url
 
 ## Use
-
 
 ### Config via passed in values
 
@@ -101,7 +100,7 @@ config='pathTo/myConfig.json'
       uid:      "eastcoast-manager",
       isAdmin : true
     },
-    "root": "east-coast/inventory"
+    "path": "east-coast/inventory"
   }
 }
 ```
