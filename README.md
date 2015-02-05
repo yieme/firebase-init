@@ -118,5 +118,27 @@ or
 ```sh
 node app.js --firebase=name:example,token:e27d9f2a29b7
 ```
+<!-- EXAMPLES:BEGIN -->
+## Examples
 
+### [Read test](examples/read-test.js)
+
+```js
+var FirebaseInit = require('firebase-init')
+  , config = {
+    name: 'pub',
+    path: 'AWS/zone/ap-northeast-1/city'
+  }
+
+FirebaseInit(config, function (err, firebaseRef) {
+  firebaseRef.once('value', function(dataSnapshot) {
+    console.log(dataSnapshot.val()) // Tokyo
+    process.exit(0)
+  }, function(err) {
+    console.log(err)
+    process.exit(0)
+  })
+})
+```
+<!-- EXAMPLES:END -->
 ## License: MIT
