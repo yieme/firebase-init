@@ -42,7 +42,7 @@ function FirebaseInit(option, cb) {
   }
   option     = option      || {}
   if (typeof option === 'string') {
-    option = jsonic(''+option)
+    option = jsonic('' + option)
   }
   var name   = option.name || firebaseConfig.name   || convar('firebase.name') || undefined
   var url    = option.url  || firebaseConfig.url    || convar('firebase.url')  || name && 'https://' + name + '.firebaseio.com' || undefined
