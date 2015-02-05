@@ -1,6 +1,6 @@
 {
   "name": "firebase-init",
-  "version": "1.0.3",
+  "version": "1.2.0",
   "description": "Firebase Initializer with configuration variable via config file, environment variable, package, npm or cli",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "convar": "^1.1.1",
-    "firebase": "^2.1.1",
+    "firebase": "^2.1.2",
     "firebase-token-generator": "^2.0.0"
   },
   "devDependencies": {

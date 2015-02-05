@@ -11,8 +11,8 @@ function builder(config, cb) {
   var firebaseRef = new Firebase(config.url)
 
   function finish(error, fbRef) {
-    if (config.root) {
-      fbRef = fbRef.child(config.root)
+    if (config.path) {
+      fbRef = fbRef.child(config.path)
     }
     cb(error, fbRef)
   }
@@ -44,7 +44,7 @@ function FirebaseInit(option, cb) {
   var url    = option.url  || firebaseConfig.url    || convar('firebase.url')  || name && 'https://' + name + '.firebaseio.com' || undefined
   var config = {
     url:    url                                     || convar('firebase.url', 'Firebase name or url config required.'),
-    root:   option.root    || firebaseConfig.root   || convar('firebase.root'),
+    path:   option.path    || firebaseConfig.path   || convar('firebase.path'),
     token:  option.token   || firebaseConfig.token  || convar('firebase.token'),
     custom: option.custom  || firebaseConfig.custom || convar('firebase.custom')
   }
