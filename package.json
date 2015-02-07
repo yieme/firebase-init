@@ -1,6 +1,6 @@
 {
   "name": "firebase-init",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Firebase Initializer with configuration variable via config file, environment variable, package, npm or cli",
   "main": "index.js",
   "scripts": {
