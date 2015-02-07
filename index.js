@@ -63,3 +63,4 @@ function FirebaseInit(option, cb) {
 }
 
 module.exports = FirebaseInit
+module.exports.ServerValue = Firebase.ServerValue
